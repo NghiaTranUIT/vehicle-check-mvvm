@@ -7,13 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F6DB3C6DC87613824D11239 /* Pods_VehicleCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D478B5F7E40790FFA93BE2 /* Pods_VehicleCheck.framework */; };
 		BA372F672098A683001CAA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F662098A683001CAA76 /* AppDelegate.swift */; };
-		BA372F692098A683001CAA76 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F682098A683001CAA76 /* MasterViewController.swift */; };
-		BA372F6B2098A683001CAA76 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F6A2098A683001CAA76 /* DetailViewController.swift */; };
 		BA372F6E2098A683001CAA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA372F6C2098A683001CAA76 /* Main.storyboard */; };
 		BA372F702098A685001CAA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA372F6F2098A685001CAA76 /* Assets.xcassets */; };
 		BA372F732098A685001CAA76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA372F712098A685001CAA76 /* LaunchScreen.storyboard */; };
 		BA372F7E2098A685001CAA76 /* VehicleCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F7D2098A685001CAA76 /* VehicleCheckTests.swift */; };
+		BA372F8B2098A8C6001CAA76 /* VehicleCheckMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F8A2098A8C6001CAA76 /* VehicleCheckMasterViewController.swift */; };
+		BA372F8D2098A8CF001CAA76 /* VehicleCheckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F8C2098A8CF001CAA76 /* VehicleCheckDetailViewController.swift */; };
+		BA372F8F2098A8E1001CAA76 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F8E2098A8E1001CAA76 /* SplitViewController.swift */; };
+		BA372F912098A927001CAA76 /* VCMasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F902098A927001CAA76 /* VCMasterViewModel.swift */; };
+		BA372F932098A931001CAA76 /* VCDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F922098A931001CAA76 /* VCDetailViewModel.swift */; };
+		BA372F952098A93D001CAA76 /* VCSplitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F942098A93D001CAA76 /* VCSplitViewModel.swift */; };
+		BA372F972098A9C7001CAA76 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F962098A9C7001CAA76 /* NetworkingService.swift */; };
+		BA372F9B2098AA04001CAA76 /* Leg.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F9A2098AA04001CAA76 /* Leg.swift */; };
+		BA372F9D2098AA58001CAA76 /* VehicleCheckModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F9C2098AA58001CAA76 /* VehicleCheckModels.swift */; };
+		BA372F9F2098AAC0001CAA76 /* VehicleCheckData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F9E2098AAC0001CAA76 /* VehicleCheckData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,10 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B3A57FA5FF50E085E7FA0B5 /* Pods-VehicleCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VehicleCheck.release.xcconfig"; path = "Pods/Target Support Files/Pods-VehicleCheck/Pods-VehicleCheck.release.xcconfig"; sourceTree = "<group>"; };
+		28D478B5F7E40790FFA93BE2 /* Pods_VehicleCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VehicleCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B70E66B195993F7B7A2BB9 /* Pods-VehicleCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VehicleCheck.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VehicleCheck/Pods-VehicleCheck.debug.xcconfig"; sourceTree = "<group>"; };
 		BA372F632098A683001CAA76 /* VehicleCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VehicleCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA372F662098A683001CAA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA372F682098A683001CAA76 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		BA372F6A2098A683001CAA76 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BA372F6D2098A683001CAA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA372F6F2098A685001CAA76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA372F722098A685001CAA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +48,16 @@
 		BA372F792098A685001CAA76 /* VehicleCheckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VehicleCheckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA372F7D2098A685001CAA76 /* VehicleCheckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCheckTests.swift; sourceTree = "<group>"; };
 		BA372F7F2098A685001CAA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA372F8A2098A8C6001CAA76 /* VehicleCheckMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCheckMasterViewController.swift; sourceTree = "<group>"; };
+		BA372F8C2098A8CF001CAA76 /* VehicleCheckDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCheckDetailViewController.swift; sourceTree = "<group>"; };
+		BA372F8E2098A8E1001CAA76 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		BA372F902098A927001CAA76 /* VCMasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMasterViewModel.swift; sourceTree = "<group>"; };
+		BA372F922098A931001CAA76 /* VCDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCDetailViewModel.swift; sourceTree = "<group>"; };
+		BA372F942098A93D001CAA76 /* VCSplitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSplitViewModel.swift; sourceTree = "<group>"; };
+		BA372F962098A9C7001CAA76 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		BA372F9A2098AA04001CAA76 /* Leg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leg.swift; sourceTree = "<group>"; };
+		BA372F9C2098AA58001CAA76 /* VehicleCheckModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCheckModels.swift; sourceTree = "<group>"; };
+		BA372F9E2098AAC0001CAA76 /* VehicleCheckData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCheckData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F6DB3C6DC87613824D11239 /* Pods_VehicleCheck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +79,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C2FAAA3FBC2095F04A80804 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28D478B5F7E40790FFA93BE2 /* Pods_VehicleCheck.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		563333D6E06F2D865513D11D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				84B70E66B195993F7B7A2BB9 /* Pods-VehicleCheck.debug.xcconfig */,
+				1B3A57FA5FF50E085E7FA0B5 /* Pods-VehicleCheck.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BA372F5A2098A683001CAA76 = {
 			isa = PBXGroup;
 			children = (
 				BA372F652098A683001CAA76 /* VehicleCheck */,
 				BA372F7C2098A685001CAA76 /* VehicleCheckTests */,
 				BA372F642098A683001CAA76 /* Products */,
+				563333D6E06F2D865513D11D /* Pods */,
+				0C2FAAA3FBC2095F04A80804 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,9 +119,11 @@
 		BA372F652098A683001CAA76 /* VehicleCheck */ = {
 			isa = PBXGroup;
 			children = (
+				BA372F992098A9FC001CAA76 /* Model */,
+				BA372F982098A9CE001CAA76 /* Service */,
+				BA372F892098A8B2001CAA76 /* Controller */,
+				BA372F882098A886001CAA76 /* View Models */,
 				BA372F662098A683001CAA76 /* AppDelegate.swift */,
-				BA372F682098A683001CAA76 /* MasterViewController.swift */,
-				BA372F6A2098A683001CAA76 /* DetailViewController.swift */,
 				BA372F6C2098A683001CAA76 /* Main.storyboard */,
 				BA372F6F2098A685001CAA76 /* Assets.xcassets */,
 				BA372F712098A685001CAA76 /* LaunchScreen.storyboard */,
@@ -99,6 +141,44 @@
 			path = VehicleCheckTests;
 			sourceTree = "<group>";
 		};
+		BA372F882098A886001CAA76 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA372F902098A927001CAA76 /* VCMasterViewModel.swift */,
+				BA372F922098A931001CAA76 /* VCDetailViewModel.swift */,
+				BA372F942098A93D001CAA76 /* VCSplitViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		BA372F892098A8B2001CAA76 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BA372F8A2098A8C6001CAA76 /* VehicleCheckMasterViewController.swift */,
+				BA372F8C2098A8CF001CAA76 /* VehicleCheckDetailViewController.swift */,
+				BA372F8E2098A8E1001CAA76 /* SplitViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BA372F982098A9CE001CAA76 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BA372F9E2098AAC0001CAA76 /* VehicleCheckData.swift */,
+				BA372F962098A9C7001CAA76 /* NetworkingService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BA372F992098A9FC001CAA76 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA372F9A2098AA04001CAA76 /* Leg.swift */,
+				BA372F9C2098AA58001CAA76 /* VehicleCheckModels.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA372F822098A685001CAA76 /* Build configuration list for PBXNativeTarget "VehicleCheck" */;
 			buildPhases = (
+				2B09C0F8856D312FEED65212 /* [CP] Check Pods Manifest.lock */,
 				BA372F5F2098A683001CAA76 /* Sources */,
 				BA372F602098A683001CAA76 /* Frameworks */,
 				BA372F612098A683001CAA76 /* Resources */,
+				CB0332035E88838D26D820C8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,14 +277,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2B09C0F8856D312FEED65212 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VehicleCheck-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB0332035E88838D26D820C8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VehicleCheck/Pods-VehicleCheck-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VehicleCheck/Pods-VehicleCheck-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BA372F5F2098A683001CAA76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA372F6B2098A683001CAA76 /* DetailViewController.swift in Sources */,
-				BA372F692098A683001CAA76 /* MasterViewController.swift in Sources */,
+				BA372F9B2098AA04001CAA76 /* Leg.swift in Sources */,
+				BA372F912098A927001CAA76 /* VCMasterViewModel.swift in Sources */,
+				BA372F8D2098A8CF001CAA76 /* VehicleCheckDetailViewController.swift in Sources */,
+				BA372F9D2098AA58001CAA76 /* VehicleCheckModels.swift in Sources */,
+				BA372F8B2098A8C6001CAA76 /* VehicleCheckMasterViewController.swift in Sources */,
+				BA372F972098A9C7001CAA76 /* NetworkingService.swift in Sources */,
 				BA372F672098A683001CAA76 /* AppDelegate.swift in Sources */,
+				BA372F932098A931001CAA76 /* VCDetailViewModel.swift in Sources */,
+				BA372F9F2098AAC0001CAA76 /* VehicleCheckData.swift in Sources */,
+				BA372F952098A93D001CAA76 /* VCSplitViewModel.swift in Sources */,
+				BA372F8F2098A8E1001CAA76 /* SplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +493,7 @@
 		};
 		BA372F832098A685001CAA76 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84B70E66B195993F7B7A2BB9 /* Pods-VehicleCheck.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -377,6 +511,7 @@
 		};
 		BA372F842098A685001CAA76 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B3A57FA5FF50E085E7FA0B5 /* Pods-VehicleCheck.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
