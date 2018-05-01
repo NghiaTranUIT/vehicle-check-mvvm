@@ -13,6 +13,7 @@ def pod_driver_required
     pod 'RxSwift'
     pod 'RxCocoa'
     pod 'Action'
+    pod 'RxOptional'
 end
 
 # Pie Drive

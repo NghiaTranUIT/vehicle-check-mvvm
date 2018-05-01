@@ -23,6 +23,11 @@
 		BA372F9B2098AA04001CAA76 /* Leg.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F9A2098AA04001CAA76 /* Leg.swift */; };
 		BA372F9D2098AA58001CAA76 /* VehicleCheckModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F9C2098AA58001CAA76 /* VehicleCheckModels.swift */; };
 		BA372F9F2098AAC0001CAA76 /* VehicleCheckData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372F9E2098AAC0001CAA76 /* VehicleCheckData.swift */; };
+		BA372FA32098B0F9001CAA76 /* VCSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372FA12098B0F9001CAA76 /* VCSectionCell.swift */; };
+		BA372FA42098B0F9001CAA76 /* VCSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA372FA22098B0F9001CAA76 /* VCSectionCell.xib */; };
+		BA372FA72098B609001CAA76 /* VCAttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372FA52098B609001CAA76 /* VCAttributeCell.swift */; };
+		BA372FA82098B609001CAA76 /* VCAttributeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA372FA62098B609001CAA76 /* VCAttributeCell.xib */; };
+		BA9C4DC12098CE1100542F70 /* VCCheckSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C4DC02098CE1100542F70 /* VCCheckSectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,11 @@
 		BA372F9A2098AA04001CAA76 /* Leg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leg.swift; sourceTree = "<group>"; };
 		BA372F9C2098AA58001CAA76 /* VehicleCheckModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCheckModels.swift; sourceTree = "<group>"; };
 		BA372F9E2098AAC0001CAA76 /* VehicleCheckData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCheckData.swift; sourceTree = "<group>"; };
+		BA372FA12098B0F9001CAA76 /* VCSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSectionCell.swift; sourceTree = "<group>"; };
+		BA372FA22098B0F9001CAA76 /* VCSectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCSectionCell.xib; sourceTree = "<group>"; };
+		BA372FA52098B609001CAA76 /* VCAttributeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCAttributeCell.swift; sourceTree = "<group>"; };
+		BA372FA62098B609001CAA76 /* VCAttributeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCAttributeCell.xib; sourceTree = "<group>"; };
+		BA9C4DC02098CE1100542F70 /* VCCheckSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCCheckSectionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +129,7 @@
 		BA372F652098A683001CAA76 /* VehicleCheck */ = {
 			isa = PBXGroup;
 			children = (
+				BA372FA02098B0E2001CAA76 /* View */,
 				BA372F992098A9FC001CAA76 /* Model */,
 				BA372F982098A9CE001CAA76 /* Service */,
 				BA372F892098A8B2001CAA76 /* Controller */,
@@ -177,6 +188,18 @@
 				BA372F9C2098AA58001CAA76 /* VehicleCheckModels.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BA372FA02098B0E2001CAA76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA372FA12098B0F9001CAA76 /* VCSectionCell.swift */,
+				BA9C4DC02098CE1100542F70 /* VCCheckSectionViewModel.swift */,
+				BA372FA22098B0F9001CAA76 /* VCSectionCell.xib */,
+				BA372FA52098B609001CAA76 /* VCAttributeCell.swift */,
+				BA372FA62098B609001CAA76 /* VCAttributeCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +285,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA372FA42098B0F9001CAA76 /* VCSectionCell.xib in Resources */,
 				BA372F732098A685001CAA76 /* LaunchScreen.storyboard in Resources */,
 				BA372F702098A685001CAA76 /* Assets.xcassets in Resources */,
 				BA372F6E2098A683001CAA76 /* Main.storyboard in Resources */,
+				BA372FA82098B609001CAA76 /* VCAttributeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,12 +330,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-VehicleCheck/Pods-VehicleCheck-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,10 +352,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA372FA32098B0F9001CAA76 /* VCSectionCell.swift in Sources */,
 				BA372F9B2098AA04001CAA76 /* Leg.swift in Sources */,
+				BA9C4DC12098CE1100542F70 /* VCCheckSectionViewModel.swift in Sources */,
 				BA372F912098A927001CAA76 /* VCMasterViewModel.swift in Sources */,
 				BA372F8D2098A8CF001CAA76 /* VehicleCheckDetailViewController.swift in Sources */,
 				BA372F9D2098AA58001CAA76 /* VehicleCheckModels.swift in Sources */,
+				BA372FA72098B609001CAA76 /* VCAttributeCell.swift in Sources */,
 				BA372F8B2098A8C6001CAA76 /* VehicleCheckMasterViewController.swift in Sources */,
 				BA372F972098A9C7001CAA76 /* NetworkingService.swift in Sources */,
 				BA372F672098A683001CAA76 /* AppDelegate.swift in Sources */,

@@ -33,12 +33,14 @@ class VCMasterViewModel: VCMasterViewModelType, VCMasterViewModelOutput, VCMaste
     var output: VCMasterViewModelOutput { return self }
 
     // MARK: - Variable
+    private let detailViewModel: VCDetailViewModelType
     private let network: NetworkingServiceType
     private let bag = DisposeBag()
 
     // MARK: - Init
     init(network: NetworkingServiceType = NetworkingService.shared, detailViewModel: VCDetailViewModelType) {
         self.network = network
+        self.detailViewModel = detailViewModel
 
         // Load
         loadVehicleCheckAction = Action(workFactory: { (leg) in
@@ -47,6 +49,13 @@ class VCMasterViewModel: VCMasterViewModelType, VCMasterViewModelOutput, VCMaste
 
         // Bind to data source
         loadVehicleCheckAction.elements.bind(to: vehicleCheck).disposed(by: bag)
+
+        // Bind to Detail
+        selectedSection.asObserver().map { [unowned self] (row) -> Section in
+            return self.vehicleCheck.value[row]
+        }
+        .bind(to: detailViewModel.input.presentSection)
+        .disposed(by: bag)
     }
 
     // MARK: - Input
