@@ -47,10 +47,15 @@ class VehicleCheckDetailViewController: UIViewController {
 
                 // Reload
                 strongSelf.tableView.reloadData()
+
+                output.nextBtnEnable.asObservable().bind(to: strongSelf.nextBtn.rx.isEnabled).disposed(by: strongSelf.bag)
+
+                strongSelf.nextBtn.rx.action = input.nextSectionAction
             })
         .disposed(by: bag)
 
-        output.nextBtnEnable.asObservable().bind(to: nextBtn.rx.isEnabled).disposed(by: bag)
+
+
     }
 }
 

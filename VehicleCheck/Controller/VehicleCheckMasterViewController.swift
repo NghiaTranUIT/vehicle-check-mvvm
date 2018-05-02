@@ -58,8 +58,25 @@ class VehicleCheckMasterViewController: UIViewController {
 
             // Select first obj
             if sections.count > 0 {
-                strongSelf.viewModel.input.selectedSection.onNext(0)
+                let index = IndexPath(row: 0, section: 0)
+                strongSelf.tableView.selectRow(at: index, animated: false, scrollPosition: UITableViewScrollPosition.none)
+                strongSelf.tableView(strongSelf.tableView, didSelectRowAt: index)
             }
+        })
+        .disposed(by: bag)
+
+        output.shouldSelectSectionOnTableView.subscribe(onNext: { (nextRow) in
+            let index = IndexPath(row: nextRow, section: 0)
+            self.tableView.selectRow(at: index, animated: false, scrollPosition: UITableViewScrollPosition.none)
+            self.tableView(self.tableView, didSelectRowAt: index)
+        })
+        .disposed(by: bag)
+
+        output.presentSignatureController.subscribe(onNext: { _ in
+
+            print("🔴 Go to Signature controller")
+            let sections = output.vehicleCheck.value
+            print("Sections = \(sections)")
         })
         .disposed(by: bag)
     }

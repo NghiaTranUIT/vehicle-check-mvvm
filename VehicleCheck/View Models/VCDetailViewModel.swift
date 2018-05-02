@@ -19,6 +19,7 @@ protocol VCDetailViewModelType {
 protocol VCDetailViewModelInput {
 
     var presentSection: PublishSubject<VCCheckSectionViewModelType> { get }
+    var nextSectionAction: CocoaAction { get }
 }
 
 protocol VCDetailViewModelOutput {
@@ -54,4 +55,10 @@ class VCDetailViewModel: VCDetailViewModelType, VCDetailViewModelInput, VCDetail
     // MARK: - Output
     var nextBtnEnable: Observable<Bool>!
     let selectedSection = Variable<VCCheckSectionViewModelType?>(nil)
+    var nextSectionAction: CocoaAction {
+        return CocoaAction {
+            NotificationCenter.default.post(name: NSNotification.Name("Next"), object: nil)
+            return .empty()
+        }
+    }
 }

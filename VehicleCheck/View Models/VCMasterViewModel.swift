@@ -25,6 +25,8 @@ protocol VCMasterViewModelInput {
 protocol VCMasterViewModelOutput {
 
     var vehicleCheck: Variable<[VCCheckSectionViewModelType]> { get }
+    var shouldSelectSectionOnTableView: PublishSubject<Int> { get }
+    var presentSignatureController: PublishSubject<Void> { get }
 }
 
 class VCMasterViewModel: VCMasterViewModelType, VCMasterViewModelOutput, VCMasterViewModelInput {
@@ -36,6 +38,7 @@ class VCMasterViewModel: VCMasterViewModelType, VCMasterViewModelOutput, VCMaste
     private let detailViewModel: VCDetailViewModelType
     private let network: NetworkingServiceType
     private let bag = DisposeBag()
+    private var row = 0
 
     // MARK: - Init
     init(network: NetworkingServiceType = NetworkingService.shared, detailViewModel: VCDetailViewModelType) {
@@ -58,9 +61,22 @@ class VCMasterViewModel: VCMasterViewModelType, VCMasterViewModelOutput, VCMaste
 
         // Bind to Detail
         selectedSection.asObserver().map { [unowned self] (row) -> VCCheckSectionViewModelType in
+            self.row = row
             return self.vehicleCheck.value[row]
         }
         .bind(to: detailViewModel.input.presentSection)
+        .disposed(by: bag)
+
+        //
+        NotificationCenter.default.rx.notification(NSNotification.Name("Next"))
+            .subscribe(onNext: { (_) in
+                let nextRow = self.row + 1
+                guard nextRow < self.vehicleCheck.value.count else {
+                    self.presentSignatureController.onNext(())
+                    return
+                }
+                self.shouldSelectSectionOnTableView.onNext(nextRow)
+            })
         .disposed(by: bag)
     }
 
@@ -69,6 +85,8 @@ class VCMasterViewModel: VCMasterViewModelType, VCMasterViewModelOutput, VCMaste
     let selectedSection = PublishSubject<Int>()
 
     // MARK: - Output
+    let shouldSelectSectionOnTableView = PublishSubject<Int>()
     let vehicleCheck = Variable<[VCCheckSectionViewModelType]>([])
+    let presentSignatureController = PublishSubject<Void>()
 
 }
