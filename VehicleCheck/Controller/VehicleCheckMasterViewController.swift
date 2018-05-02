@@ -78,6 +78,9 @@ extension VehicleCheckMasterViewController: UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VCSectionCell", for: indexPath) as! VCSectionCell
 
+        let cellVM = viewModel.output.vehicleCheck.value[indexPath.row]
+        cell.config(with: cellVM)
+        
         return cell
     }
 

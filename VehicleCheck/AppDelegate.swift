@@ -16,7 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        
+        let detail = VCDetailViewModel()
+        let splitController = window?.rootViewController as! SplitViewController
+        let master = (splitController.viewControllers.first! as! UINavigationController).viewControllers.first as! VehicleCheckMasterViewController
+        master.viewModel = VCMasterViewModel(network: NetworkingService.shared,
+                                             detailViewModel: detail)
+        master.leg = Leg()
+
+        let detailVC = (splitController.viewControllers[1] as! UINavigationController).viewControllers.first as! VehicleCheckDetailViewController
+        detailVC.viewModel = detail
+
         return true
     }
 

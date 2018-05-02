@@ -19,7 +19,8 @@ class VCAttributeCell: UITableViewCell {
         // Initialization code
     }
 
-    func config(with attribute: Attribute) {
+    func config(with viewModel: VCAttributeViewModelType) {
 
+        viewModel.output.title.drive(titleLbl.rx.text)
     }
 }

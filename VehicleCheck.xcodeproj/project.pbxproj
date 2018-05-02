@@ -28,6 +28,8 @@
 		BA372FA72098B609001CAA76 /* VCAttributeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA372FA52098B609001CAA76 /* VCAttributeCell.swift */; };
 		BA372FA82098B609001CAA76 /* VCAttributeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA372FA62098B609001CAA76 /* VCAttributeCell.xib */; };
 		BA9C4DC12098CE1100542F70 /* VCCheckSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C4DC02098CE1100542F70 /* VCCheckSectionViewModel.swift */; };
+		BA9C4DC32098D17200542F70 /* VCAttributeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C4DC22098D17200542F70 /* VCAttributeViewModel.swift */; };
+		BA9C4DC52098D99500542F70 /* VCSubSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C4DC42098D99500542F70 /* VCSubSectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		BA372FA52098B609001CAA76 /* VCAttributeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCAttributeCell.swift; sourceTree = "<group>"; };
 		BA372FA62098B609001CAA76 /* VCAttributeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCAttributeCell.xib; sourceTree = "<group>"; };
 		BA9C4DC02098CE1100542F70 /* VCCheckSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCCheckSectionViewModel.swift; sourceTree = "<group>"; };
+		BA9C4DC22098D17200542F70 /* VCAttributeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCAttributeViewModel.swift; sourceTree = "<group>"; };
+		BA9C4DC42098D99500542F70 /* VCSubSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSubSectionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +202,8 @@
 				BA372FA22098B0F9001CAA76 /* VCSectionCell.xib */,
 				BA372FA52098B609001CAA76 /* VCAttributeCell.swift */,
 				BA372FA62098B609001CAA76 /* VCAttributeCell.xib */,
+				BA9C4DC22098D17200542F70 /* VCAttributeViewModel.swift */,
+				BA9C4DC42098D99500542F70 /* VCSubSectionViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -355,12 +361,14 @@
 				BA372FA32098B0F9001CAA76 /* VCSectionCell.swift in Sources */,
 				BA372F9B2098AA04001CAA76 /* Leg.swift in Sources */,
 				BA9C4DC12098CE1100542F70 /* VCCheckSectionViewModel.swift in Sources */,
+				BA9C4DC32098D17200542F70 /* VCAttributeViewModel.swift in Sources */,
 				BA372F912098A927001CAA76 /* VCMasterViewModel.swift in Sources */,
 				BA372F8D2098A8CF001CAA76 /* VehicleCheckDetailViewController.swift in Sources */,
 				BA372F9D2098AA58001CAA76 /* VehicleCheckModels.swift in Sources */,
 				BA372FA72098B609001CAA76 /* VCAttributeCell.swift in Sources */,
 				BA372F8B2098A8C6001CAA76 /* VehicleCheckMasterViewController.swift in Sources */,
 				BA372F972098A9C7001CAA76 /* NetworkingService.swift in Sources */,
+				BA9C4DC52098D99500542F70 /* VCSubSectionViewModel.swift in Sources */,
 				BA372F672098A683001CAA76 /* AppDelegate.swift in Sources */,
 				BA372F932098A931001CAA76 /* VCDetailViewModel.swift in Sources */,
 				BA372F9F2098AAC0001CAA76 /* VehicleCheckData.swift in Sources */,

@@ -18,12 +18,12 @@ protocol VCDetailViewModelType {
 
 protocol VCDetailViewModelInput {
 
-    var presentSection: PublishSubject<Section> { get }
+    var presentSection: PublishSubject<VCCheckSectionViewModelType> { get }
 }
 
 protocol VCDetailViewModelOutput {
 
-    var selectedSection: Variable<Section?> { get }
+    var selectedSection: Variable<VCCheckSectionViewModelType?> { get }
 }
 
 class VCDetailViewModel: VCDetailViewModelType, VCDetailViewModelInput, VCDetailViewModelOutput {
@@ -43,8 +43,8 @@ class VCDetailViewModel: VCDetailViewModelType, VCDetailViewModelInput, VCDetail
     }
 
     // MARK: - Input
-    let presentSection = PublishSubject<Section>()
+    let presentSection = PublishSubject<VCCheckSectionViewModelType>()
 
     // MARK: - Output
-    let selectedSection = Variable<Section?>(nil)
+    let selectedSection = Variable<VCCheckSectionViewModelType?>(nil)
 }

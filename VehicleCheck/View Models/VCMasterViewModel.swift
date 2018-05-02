@@ -24,7 +24,7 @@ protocol VCMasterViewModelInput {
 
 protocol VCMasterViewModelOutput {
 
-    var vehicleCheck: Variable<[Section]> { get }
+    var vehicleCheck: Variable<[VCCheckSectionViewModelType]> { get }
 }
 
 class VCMasterViewModel: VCMasterViewModelType, VCMasterViewModelOutput, VCMasterViewModelInput {
@@ -48,10 +48,16 @@ class VCMasterViewModel: VCMasterViewModelType, VCMasterViewModelOutput, VCMaste
         })
 
         // Bind to data source
-        loadVehicleCheckAction.elements.bind(to: vehicleCheck).disposed(by: bag)
+        loadVehicleCheckAction.elements
+            .map({ (sections) -> [VCCheckSectionViewModelType] in
+                return sections.map {
+                    return VCCheckSectionViewModel(section: $0)
+                }
+            })
+            .bind(to: vehicleCheck).disposed(by: bag)
 
         // Bind to Detail
-        selectedSection.asObserver().map { [unowned self] (row) -> Section in
+        selectedSection.asObserver().map { [unowned self] (row) -> VCCheckSectionViewModelType in
             return self.vehicleCheck.value[row]
         }
         .bind(to: detailViewModel.input.presentSection)
@@ -63,6 +69,6 @@ class VCMasterViewModel: VCMasterViewModelType, VCMasterViewModelOutput, VCMaste
     let selectedSection = PublishSubject<Int>()
 
     // MARK: - Output
-    let vehicleCheck = Variable<[Section]>([])
+    let vehicleCheck = Variable<[VCCheckSectionViewModelType]>([])
 
 }

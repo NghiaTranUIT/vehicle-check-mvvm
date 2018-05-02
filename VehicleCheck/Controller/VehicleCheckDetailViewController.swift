@@ -56,17 +56,22 @@ extension VehicleCheckDetailViewController: UITableViewDataSource, UITableViewDe
 
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let section = viewModel.output.selectedSection.value else { return 0 }
-        return section.subSections.count
+        return section.output.subSections.value.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let sectionData = viewModel.output.selectedSection.value else { return 0 }
-        return sectionData.subSections[section].attributes.count
+        let subSectionVM = sectionData.output.subSections.value[section]
+        return subSectionVM.output.attributes.value.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VCAttributeCell", for: indexPath) as! VCAttributeCell
 
+        let cellViewModel = viewModel.output.selectedSection.value!.output.subSections.value[indexPath.section]
+        let attributeVM = cellViewModel.output.attributes.value[indexPath.row]
+        cell.config(with: attributeVM)
+        
         return cell
     }
 

@@ -7,16 +7,29 @@
 //
 
 import UIKit
+import RxSwift
 
 class VCSectionCell: UITableViewCell {
 
     // MARK: - OUTLET
     @IBOutlet weak var titleLbl: UILabel!
 
+    // MARK: - Private
+    private let bag = DisposeBag()
+
     // MARK: - VIEW
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+
+    func config(with viewModel: VCCheckSectionViewModelType) {
+
+        // Name
+        viewModel.output.name.drive(titleLbl.rx.text).disposed(by: bag)
+
+        // Complete or Failed
+        
     }
     
 }
