@@ -8,12 +8,16 @@
 
 import Foundation
 
-struct VehicleCheck: Codable {
+class VehicleCheck: Codable {
 
     let sections: [Section]
+
+    public init(sections: [Section]) {
+        self.sections = sections
+    }
 }
 
-struct Section: Codable {
+class Section: Codable {
 
     enum Kind: String, Codable {
         case general
@@ -25,10 +29,17 @@ struct Section: Codable {
     let kind: Kind
     let name: String
     let subSections: [SubSection]
+
+    public init(id: String, kind: Kind, name: String, subSections: [SubSection]) {
+        self.id = id
+        self.kind = kind
+        self.name = name
+        self.subSections = subSections
+    }
 }
 
 
-struct SubSection: Codable {
+class SubSection: Codable {
 
     enum Kind: String, Codable {
         case vehicle
@@ -40,9 +51,16 @@ struct SubSection: Codable {
     let id: String
     let name: String
     let attributes: [Attribute]
+
+    init(kind: Kind, id: String, name: String, attributes: [Attribute]) {
+        self.kind = kind
+        self.id = id
+        self.name = name
+        self.attributes = attributes
+    }
 }
 
-struct Attribute: Codable {
+class Attribute: Codable {
 
     enum Status: String, Codable {
         case yes

@@ -23,8 +23,9 @@ protocol VCCheckSectionViewModelInput {
 protocol VCCheckSectionViewModelOutput {
 
     var name: Driver<String> { get }
-    var status: Driver<VCCheckSectionViewModel.Status> { get }
+    var status: Driver<VCCheckSectionViewModel.Status>! { get }
     var subSections: Variable<[VCSubSectionViewModel]> { get }
+    var nextBtnEnable: Observable<Bool>! { get }
 }
 
 class VCCheckSectionViewModel: VCCheckSectionViewModelType, VCCheckSectionViewModelInput, VCCheckSectionViewModelOutput {
@@ -44,8 +45,9 @@ class VCCheckSectionViewModel: VCCheckSectionViewModelType, VCCheckSectionViewMo
 
     // MARK: - Output
     var name: Driver<String>
-    let status: Driver<VCCheckSectionViewModel.Status>
+    var status: Driver<VCCheckSectionViewModel.Status>!
     let subSections = Variable<[VCSubSectionViewModel]>([])
+    var nextBtnEnable: Observable<Bool>!
 
     // MARK: - Init
     init(section: Section) {
@@ -63,8 +65,15 @@ class VCCheckSectionViewModel: VCCheckSectionViewModelType, VCCheckSectionViewMo
         .bind(to: subSections)
         .disposed(by: bag)
 
+        let publisher = PublishSubject<[VCSubSectionViewModel]>()
+        NotificationCenter.default.rx.notification(Notification.Name(rawValue: "Updated"))
+            .map { _ in return self.subSections.value }
+        .bind(to: publisher)
+        .disposed(by: bag)
+
         // Complete or Failed Status
-        status = subSections.asObservable().flatMap { (subSections) -> Observable<Status> in
+        let merge = Observable<[VCSubSectionViewModel]>.merge([publisher.asObservable(), subSections.asObservable()]).share()
+        status = merge.flatMap { (subSections) -> Observable<Status> in
 
             // If has any failed
             for subSection in subSections {
@@ -99,5 +108,18 @@ class VCCheckSectionViewModel: VCCheckSectionViewModelType, VCCheckSectionViewMo
         }
         .asDriver(onErrorJustReturn: VCCheckSectionViewModel.Status.none)
 
+        nextBtnEnable = merge.flatMap { (subSections) -> Observable<Bool> in
+
+            // If has any failed
+            for subSection in subSections {
+                for attribute in subSection.attributes.value {
+                    if attribute.output.status.value == Attribute.Status.notSelect {
+                        return .just(false)
+                    }
+                }
+            }
+
+            return .just(true)
+        }
     }
 }

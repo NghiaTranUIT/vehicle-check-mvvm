@@ -13,7 +13,8 @@ class VCSectionCell: UITableViewCell {
 
     // MARK: - OUTLET
     @IBOutlet weak var titleLbl: UILabel!
-
+    @IBOutlet weak var statusBtn: UIButton!
+    
     // MARK: - Private
     private let bag = DisposeBag()
 
@@ -31,6 +32,19 @@ class VCSectionCell: UITableViewCell {
         // Complete or Failed
         viewModel.output.status.drive(onNext: { (status) in
             print(" ✅ status = \(status)")
+            switch status {
+            case .completed:
+                self.statusBtn.isHidden = false
+                self.statusBtn.isHighlighted = false
+                self.statusBtn.isSelected = true
+            case .failed:
+                self.statusBtn.isHidden = false
+                self.statusBtn.backgroundColor = UIColor.red
+                self.statusBtn.isHighlighted = true
+                self.statusBtn.isSelected = false
+            case .none:
+                self.statusBtn.isHidden = true
+            }
         })
         .disposed(by: bag)
     }

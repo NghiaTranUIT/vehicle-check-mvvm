@@ -19,7 +19,7 @@ protocol VCAttributeViewModelType {
 
 protocol VCAttributeViewModelInput {
 
-    var selectSegmentAction: Action<Int, Void>! { get }
+    var selectSegmentAction: Action<Int, Void> { get }
 }
 
 protocol VCAttributeViewModelOutput {
@@ -44,11 +44,30 @@ class VCAttributeViewModel: VCAttributeViewModelType, VCAttributeViewModelInput,
     let status = Variable<Attribute.Status>(Attribute.Status.notSelect)
 
     // MARK: - Input
-    var selectSegmentAction: Action<Int, Void>!
+    var selectSegmentAction: Action<Int, Void> {
+        return Action { index in
+            let currentAttribute = self.attribute.value
+            switch index {
+            case UISegmentedControlNoSegment:
+
+                self.attribute.value = Attribute(id: currentAttribute.id, name: currentAttribute.name, status: .notSelect, key: currentAttribute.key)
+            case 0:
+                self.attribute.value = Attribute(id: currentAttribute.id, name: currentAttribute.name, status: .yes, key: currentAttribute.key)
+            case 1:
+                self.attribute.value = Attribute(id: currentAttribute.id, name: currentAttribute.name, status: .no, key: currentAttribute.key)
+            default:
+                self.attribute.value = Attribute(id: currentAttribute.id, name: currentAttribute.name, status: .notSelect, key: currentAttribute.key)
+            }
+
+            NotificationCenter.default.post(name: NSNotification.Name("Updated"), object: nil)
+            return .just(())
+        }
+    }
 
     // MARK: - Init
     init(attribute: Attribute) {
         self.attribute = Variable<Attribute>(attribute)
+
         let attributeStream = self.attribute.asObservable().share()
 
         print("Init Attribute")
@@ -57,21 +76,5 @@ class VCAttributeViewModel: VCAttributeViewModelType, VCAttributeViewModelInput,
         subTitle = attributeStream.map { $0.name }.asDriver(onErrorJustReturn: "")
         attributeStream.map { $0.status }.bind(to: status).disposed(by: bag)
 
-        selectSegmentAction = Action { index in
-            let currentAttribute = self.attribute.value
-            switch index {
-            case UISegmentedControlNoSegment:
-
-                self.attribute.value = Attribute(id: currentAttribute.id, name: currentAttribute.name, status: .notSelect, key: currentAttribute.key)
-            case 0:
-                    self.attribute.value = Attribute(id: currentAttribute.id, name: currentAttribute.name, status: .yes, key: currentAttribute.key)
-            case 1:
-                    self.attribute.value = Attribute(id: currentAttribute.id, name: currentAttribute.name, status: .no, key: currentAttribute.key)
-            default:
-                    self.attribute.value = Attribute(id: currentAttribute.id, name: currentAttribute.name, status: .notSelect, key: currentAttribute.key)
-            }
-
-            return .just(())
-        }
     }
 }

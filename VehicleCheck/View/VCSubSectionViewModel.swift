@@ -22,6 +22,7 @@ protocol VCSubSectionViewModelInput {
 protocol VCSubSectionViewModelOutput {
 
     var attributes: Variable<[VCAttributeViewModelType]> { get }
+    var subSectionStream: Variable<SubSection> { get }
 }
 
 class VCSubSectionViewModel: VCSubSectionViewModelType, VCSubSectionViewModelInput, VCSubSectionViewModelOutput {
@@ -31,13 +32,14 @@ class VCSubSectionViewModel: VCSubSectionViewModelType, VCSubSectionViewModelInp
 
     private let bag = DisposeBag()
     var attributes = Variable<[VCAttributeViewModelType]>([])
+    var subSectionStream: Variable<SubSection>
 
     // MARK: - Init
     init(subSection: SubSection) {
 
-        let subSectionStream = Observable.just(subSection).share()
+        subSectionStream = Variable(subSection)
 
-        subSectionStream.map { (subSection) -> [VCAttributeViewModelType] in
+        subSectionStream.asObservable().map { (subSection) -> [VCAttributeViewModelType] in
             return subSection.attributes.map({ (attribute) -> VCAttributeViewModelType in
                 return VCAttributeViewModel(attribute: attribute)
             })

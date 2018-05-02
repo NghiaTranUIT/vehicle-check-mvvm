@@ -25,14 +25,27 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yw7-cm-ZiA">
+                        <rect key="frame" x="258" y="6" width="46" height="30"/>
+                        <state key="normal" title="Button"/>
+                        <state key="selected" title="COMPLETED">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <state key="highlighted" title="FAILED">
+                            <color key="titleColor" red="0.93333333330000001" green="0.3921568627" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Uib-TD-TNC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="02r-OR-SNf"/>
+                    <constraint firstAttribute="trailing" secondItem="yw7-cm-ZiA" secondAttribute="trailing" constant="16" id="7oG-gc-ATy"/>
                     <constraint firstItem="Uib-TD-TNC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="aho-5W-70P"/>
+                    <constraint firstItem="yw7-cm-ZiA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ffL-at-0ht"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="statusBtn" destination="yw7-cm-ZiA" id="kwS-41-2J2"/>
                 <outlet property="titleLbl" destination="Uib-TD-TNC" id="hUa-kw-vTN"/>
             </connections>
         </tableViewCell>

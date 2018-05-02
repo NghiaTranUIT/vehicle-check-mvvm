@@ -24,6 +24,7 @@ protocol VCDetailViewModelInput {
 protocol VCDetailViewModelOutput {
 
     var selectedSection: Variable<VCCheckSectionViewModelType?> { get }
+    var nextBtnEnable: Observable<Bool>! { get }
 }
 
 class VCDetailViewModel: VCDetailViewModelType, VCDetailViewModelInput, VCDetailViewModelOutput {
@@ -40,11 +41,17 @@ class VCDetailViewModel: VCDetailViewModelType, VCDetailViewModelInput, VCDetail
         // Bind to selected section
         presentSection.asObservable().bind(to: selectedSection)
         .disposed(by: bag)
+
+        selectedSection.asObservable().filterNil().subscribe(onNext: { (viewModel) in
+            self.nextBtnEnable = viewModel.output.nextBtnEnable
+        })
+        .disposed(by: bag)
     }
 
     // MARK: - Input
     let presentSection = PublishSubject<VCCheckSectionViewModelType>()
 
     // MARK: - Output
+    var nextBtnEnable: Observable<Bool>!
     let selectedSection = Variable<VCCheckSectionViewModelType?>(nil)
 }

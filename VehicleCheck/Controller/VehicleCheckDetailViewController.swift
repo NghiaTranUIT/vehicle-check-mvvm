@@ -19,7 +19,8 @@ class VehicleCheckDetailViewController: UIViewController {
 
     // MARK: - OUTLET
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var nextBtn: UIButton!
+    
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,6 @@ class VehicleCheckDetailViewController: UIViewController {
     private func initTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-
         tableView.register(UINib(nibName: "VCAttributeCell", bundle: nil), forCellReuseIdentifier: "VCAttributeCell")
     }
 
@@ -49,6 +49,8 @@ class VehicleCheckDetailViewController: UIViewController {
                 strongSelf.tableView.reloadData()
             })
         .disposed(by: bag)
+
+        output.nextBtnEnable.asObservable().bind(to: nextBtn.rx.isEnabled).disposed(by: bag)
     }
 }
 
@@ -73,6 +75,13 @@ extension VehicleCheckDetailViewController: UITableViewDataSource, UITableViewDe
         cell.config(with: attributeVM)
         
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let sectionData = viewModel.output.selectedSection.value else { return nil }
+        let subSectionVM = sectionData.output.subSections.value[section]
+        return subSectionVM.output.subSectionStream.value.name
+
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -96,14 +96,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5w6-OS-eh7">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ih-0Y-Xff">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <state key="normal" title="Next"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="bjg-JL-9Mn" firstAttribute="bottom" secondItem="5w6-OS-eh7" secondAttribute="bottom" id="4VN-Qg-XgS"/>
+                            <constraint firstItem="bjg-JL-9Mn" firstAttribute="bottom" secondItem="5w6-OS-eh7" secondAttribute="bottom" constant="44" id="4VN-Qg-XgS"/>
+                            <constraint firstItem="0Ih-0Y-Xff" firstAttribute="leading" secondItem="bjg-JL-9Mn" secondAttribute="leading" id="4ly-no-jsI"/>
+                            <constraint firstItem="bjg-JL-9Mn" firstAttribute="bottom" secondItem="0Ih-0Y-Xff" secondAttribute="bottom" id="BXx-Vo-mz4"/>
+                            <constraint firstItem="bjg-JL-9Mn" firstAttribute="trailing" secondItem="0Ih-0Y-Xff" secondAttribute="trailing" id="Ci8-EM-amP"/>
                             <constraint firstItem="5w6-OS-eh7" firstAttribute="top" secondItem="bjg-JL-9Mn" secondAttribute="top" id="GE6-Dr-aix"/>
+                            <constraint firstItem="0Ih-0Y-Xff" firstAttribute="top" secondItem="5w6-OS-eh7" secondAttribute="bottom" id="Ip8-nL-LIX"/>
                             <constraint firstItem="bjg-JL-9Mn" firstAttribute="trailing" secondItem="5w6-OS-eh7" secondAttribute="trailing" id="Nwi-TA-IRi"/>
                             <constraint firstItem="5w6-OS-eh7" firstAttribute="leading" secondItem="bjg-JL-9Mn" secondAttribute="leading" id="ftA-gD-Iic"/>
                         </constraints>
@@ -111,6 +119,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Nkr-6G-6Eu"/>
                     <connections>
+                        <outlet property="nextBtn" destination="0Ih-0Y-Xff" id="m1R-l5-DQx"/>
                         <outlet property="tableView" destination="5w6-OS-eh7" id="9ev-t7-eYD"/>
                     </connections>
                 </viewController>
