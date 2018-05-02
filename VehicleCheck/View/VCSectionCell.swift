@@ -29,7 +29,10 @@ class VCSectionCell: UITableViewCell {
         viewModel.output.name.drive(titleLbl.rx.text).disposed(by: bag)
 
         // Complete or Failed
-        
+        viewModel.output.status.drive(onNext: { (status) in
+            print(" ✅ status = \(status)")
+        })
+        .disposed(by: bag)
     }
     
 }

@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Action
 
 protocol VCAttributeViewModelType {
 
@@ -18,6 +19,7 @@ protocol VCAttributeViewModelType {
 
 protocol VCAttributeViewModelInput {
 
+    var selectSegmentAction: Action<Int, Void>! { get }
 }
 
 protocol VCAttributeViewModelOutput {
@@ -33,19 +35,43 @@ class VCAttributeViewModel: VCAttributeViewModelType, VCAttributeViewModelInput,
     var output: VCAttributeViewModelOutput { return self }
 
     private let bag = DisposeBag()
+    private let attributeStreamProperty = ReplaySubject<Attribute>.create(bufferSize: 1)
+    private var attribute: Variable<Attribute>
 
     // MARK: - Output
     let title: Driver<String>
     let subTitle: Driver<String>
     let status = Variable<Attribute.Status>(Attribute.Status.notSelect)
 
+    // MARK: - Input
+    var selectSegmentAction: Action<Int, Void>!
+
     // MARK: - Init
     init(attribute: Attribute) {
+        self.attribute = Variable<Attribute>(attribute)
+        let attributeStream = self.attribute.asObservable().share()
 
-        let attributeStream = Observable.just(attribute).share()
-
+        print("Init Attribute")
+        
         title = attributeStream.map { $0.name }.asDriver(onErrorJustReturn: "")
         subTitle = attributeStream.map { $0.name }.asDriver(onErrorJustReturn: "")
         attributeStream.map { $0.status }.bind(to: status).disposed(by: bag)
+
+        selectSegmentAction = Action { index in
+            let currentAttribute = self.attribute.value
+            switch index {
+            case UISegmentedControlNoSegment:
+
+                self.attribute.value = Attribute(id: currentAttribute.id, name: currentAttribute.name, status: .notSelect, key: currentAttribute.key)
+            case 0:
+                    self.attribute.value = Attribute(id: currentAttribute.id, name: currentAttribute.name, status: .yes, key: currentAttribute.key)
+            case 1:
+                    self.attribute.value = Attribute(id: currentAttribute.id, name: currentAttribute.name, status: .no, key: currentAttribute.key)
+            default:
+                    self.attribute.value = Attribute(id: currentAttribute.id, name: currentAttribute.name, status: .notSelect, key: currentAttribute.key)
+            }
+
+            return .just(())
+        }
     }
 }

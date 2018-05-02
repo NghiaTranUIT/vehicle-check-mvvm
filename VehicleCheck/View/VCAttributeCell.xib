@@ -25,14 +25,27 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Qup-zO-Lze">
+                        <rect key="frame" x="184" y="8" width="120" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="Tlk-Om-sLN"/>
+                        </constraints>
+                        <segments>
+                            <segment title="YES"/>
+                            <segment title="NO"/>
+                        </segments>
+                    </segmentedControl>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Qup-zO-Lze" secondAttribute="trailing" constant="16" id="1Ml-hG-BEx"/>
+                    <constraint firstItem="Qup-zO-Lze" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5gf-Lq-mYP"/>
                     <constraint firstItem="haX-Ma-n4e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="B8p-pw-Tlk"/>
                     <constraint firstItem="haX-Ma-n4e" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dtW-Mx-4kh"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="segment" destination="Qup-zO-Lze" id="xxy-Dm-nJe"/>
                 <outlet property="titleLbl" destination="haX-Ma-n4e" id="dun-NF-LQw"/>
             </connections>
         </tableViewCell>

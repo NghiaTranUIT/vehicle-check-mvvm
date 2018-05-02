@@ -52,6 +52,13 @@ struct Attribute: Codable {
 
     let id: String
     let name: String
-    let status: Status = Status.notSelect
+    let status: Status
     let key: String
+
+    init(id: String, name: String, status: Status = Status.notSelect, key: String) {
+        self.id = id
+        self.name = name
+        self.status = status
+        self.key = key
+    }
 }
